@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* SCSS HSL */
+  $platinum: hsla(184, 19%, 83%, 1);
+  $non-photo-blue: hsla(183, 40%, 72%, 1);
+  $non-photo-blue-2: hsla(186, 52%, 67%, 1);
+  $cerulean: hsla(195, 100%, 33%, 1);
+  $prussian-blue: hsla(199, 100%, 14%, 1);
+}
+
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
