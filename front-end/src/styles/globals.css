@@ -11,10 +11,12 @@
   $prussian-blue: hsla(199, 100%, 14%, 1);
 }
 
+html {
+  height: 100%;
+  font-size: 14px;
+}
+
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  height: 100%;
 }
