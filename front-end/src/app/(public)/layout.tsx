@@ -1,8 +1,5 @@
 import '../../styles/globals.scss';
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
-
-const roboto = Roboto({ weight: "100", subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Iniciar Sesión - Digital World - Electronic Shop',
@@ -15,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
-      <body className={roboto.className}>{children}</body>
+    <html lang="es" suppressHydrationWarning={true}>
+      <body >{children}</body>
     </html>
   )
 }

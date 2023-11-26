@@ -1,6 +1,37 @@
 .login-page {
-    background: rgb(0,126,167);
-    background: linear-gradient(90deg, rgba(0,126,167,1) 0%, rgba(0,50,73,1) 100%);
+    background: rgb(0, 126, 167);
+    background: url(/planet-world.png) right -25% no-repeat, url(/login-start-night.jpg) center center/cover no-repeat ,linear-gradient(90deg, rgba(0, 126, 167, 1) 0%, rgba(0, 50, 73, 1) 100%);
+    background-blend-mode: color-dodge, lighten;
     height: 100%;
 
+    > div {
+        display: inline-flex;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+        justify-content: center;
+    }
+}
+
+.login-footer {
+    position: absolute;
+    padding: 0 2rem 2rem 0;
+    inset: auto 0 0 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    font-weight: 500;
+
+    > div {
+        width: 50%;
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h4 {
+            font-weight: 300;
+        }
+    }
 }

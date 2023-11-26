@@ -1,14 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 :root {
   /* SCSS HSL */
-  $platinum: hsla(184, 19%, 83%, 1);
-  $non-photo-blue: hsla(183, 40%, 72%, 1);
-  $non-photo-blue-2: hsla(186, 52%, 67%, 1);
-  $cerulean: hsla(195, 100%, 33%, 1);
-  $prussian-blue: hsla(199, 100%, 14%, 1);
+  --platinum: hsla(184, 19%, 83%, 1);
+  --non-photo-blue: hsla(183, 40%, 72%, 1);
+  --non-photo-blue-2: hsla(186, 52%, 67%, 1);
+  --cerulean: hsla(195, 100%, 33%, 1);
+  --prussian-blue: hsla(199, 100%, 14%, 1);
+  --english-violet: hsl(282, 28%, 25%, 1);
+  --light-prussian-blue: hsla(199, 100%, 25%, 1);
+  --light-cerulean: hsla(195, 100%, 42%, 1);
+  --english-violet-semitransparent: hsl(282, 28%, 25%, 0.6);
 }
 
 html {

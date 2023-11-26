@@ -1,0 +1,32 @@
+.btn {
+    background: transparent;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s;
+    font-weight: 400;
+    margin: 1rem 0;
+}
+
+button.prussian {
+    background-color: var(--prussian-blue); 
+    color: white;
+
+    &:hover {
+        background-color: var(--light-prussian-blue);
+    }
+}
+
+button.cerulean {
+    background-color: var(--cerulean); 
+    color: white;
+
+    &:hover {
+        background-color: var(--light-cerulean);
+    }
+}
+
+button.fluid {
+    width: 100%;
+}
+
