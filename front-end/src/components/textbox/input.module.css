@@ -1,0 +1,25 @@
+.input-field {
+    margin: 1rem 0;
+}
+
+.input-field > div {
+    display: flex;
+    align-items: center;
+}
+
+label {
+    padding-right: 1rem;
+    color: white;
+    font-weight: 400;
+}
+
+input {
+    height: 2.5rem;
+    border-radius: 0.25rem;
+    flex: 1 1 auto;
+    padding-left: 0.5rem;
+}
+
+input:focus {
+    outline: none;
+}

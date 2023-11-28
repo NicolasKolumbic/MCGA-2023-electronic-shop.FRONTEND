@@ -11,19 +11,19 @@
 button.prussian {
     background-color: var(--prussian-blue); 
     color: white;
+}
 
-    &:hover {
-        background-color: var(--light-prussian-blue);
-    }
+button.prussian:hover {
+    background-color: var(--light-prussian-blue);
 }
 
 button.cerulean {
     background-color: var(--cerulean); 
     color: white;
+}
 
-    &:hover {
-        background-color: var(--light-cerulean);
-    }
+button.cerulean:hover {
+    background-color: var(--light-cerulean);
 }
 
 button.fluid {
