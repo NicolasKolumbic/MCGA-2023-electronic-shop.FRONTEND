@@ -19,10 +19,11 @@ const TextBox = ({ type, value, label, id }: Props) => {
     return <>
         <div className={styles['input-field']}>   
             <div>
-                <label htmlFor={id}>{label}</label>
+                <label htmlFor={id} className={styles['label']}>{label}</label>
                 <input  
                     type={type}
                     value={fieldValue}
+                    className={styles['input']}
                     id={id}  
                     onChange={changeHandler}           
                 />
