@@ -1,7 +1,7 @@
 import Brand from "../brand";
 import Button from "../button";
 import TextBox from "../textbox";
-import styles from "./login.module.scss";
+import styles from "./login.module.css";
 
 
 const Login = () => {

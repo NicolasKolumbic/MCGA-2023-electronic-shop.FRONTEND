@@ -2,7 +2,7 @@
 import { ChangeEvent, useState } from "react";
 import { Props } from "./types";
 
-import styles from "./input.module.scss";
+import styles from "./input.module.css";
 
 const TextBox = ({ type, value, label, id }: Props) => {
 

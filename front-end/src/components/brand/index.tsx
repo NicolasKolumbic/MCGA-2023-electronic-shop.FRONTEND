@@ -1,4 +1,4 @@
-import styles from "./brand.module.scss";
+import styles from "./brand.module.css";
 
 const Brand = () => {
 	return <>

@@ -1,5 +1,5 @@
 import Login from "@/components/login";
-import styles from "./login.module.scss";
+import styles from "./login.module.css";
 import Image from "next/image";
 
 const LoginPage = () => {
