@@ -1,0 +1,23 @@
+.navbar {
+    background: hsl(282, 28%, 25%, 1);
+    background-image: linear-gradient(360deg, rgba(205,150,235,0.5) 0%, rgba(66,44,78,0) 46%);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.75rem;
+}
+
+.navbar__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar__username {
+    font-size: 1.4rem;
+    font-weight: 700;
+}

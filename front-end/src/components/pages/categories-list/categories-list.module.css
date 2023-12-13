@@ -1,0 +1,10 @@
+.categories-list {
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+
+.categories-list__item {
+    border-bottom: 1px dashed var(--non-photo-blue);
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
