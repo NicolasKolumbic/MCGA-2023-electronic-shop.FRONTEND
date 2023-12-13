@@ -1,5 +1,6 @@
 export interface Props {
     type: 'button' | 'submit' | 'reset';
-    label: string;
+    label: string | React.ReactNode;
     design: string;
+    click?: (event: React.MouseEvent) => void
 }

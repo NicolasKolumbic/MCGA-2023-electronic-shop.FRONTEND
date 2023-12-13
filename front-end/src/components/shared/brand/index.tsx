@@ -2,7 +2,7 @@ import styles from "./brand.module.css";
 
 const Brand = () => {
 	return <>
-		<svg  xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 281.4 74.5"  xmlSpace="preserve">
+		<svg className={styles["brand"]} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 281.4 74.5"  xmlSpace="preserve">
 
 <g>
 	<path className={styles["fill-color"]} d="M59.9,21.9h10.5c3.5,0,6.1,1,7.9,3.1c1.8,2,2.7,4.9,2.7,8.6c0,1.8-0.2,3.4-0.7,4.8s-1.2,2.7-2.1,3.7

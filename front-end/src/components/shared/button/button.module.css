@@ -30,3 +30,10 @@ button.fluid {
     width: 100%;
 }
 
+button.outline-platinum {
+    border: 1px solid var(--platinum);
+    color: var(--platinum);
+    font-weight: 600;
+    padding: 0.75rem;
+}
+
