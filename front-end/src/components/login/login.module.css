@@ -1,9 +1,0 @@
-.login {
-    width: 50%;
-    background-color: var(--english-violet-semitransparent);
-    padding: 2rem;
-}
-
-.login fieldset {
-    padding: 1rem;
-}
