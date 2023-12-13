@@ -12,7 +12,7 @@ import { Props } from "./types";
 
 const CategoryForm = ({ id }: Props) => {
 
-    const [category, setCategory] = useState<Category | null>(null);
+    const [category, setCategory] = useState<Category>(new Category());
     const dispatch = useAppDispatch();
     const [createCategory] = useCreateCategoryMutation();
     const storedCategory = useAppSelector(state => state.categories.category);
@@ -54,7 +54,7 @@ const CategoryForm = ({ id }: Props) => {
                             label={"Nombre de la Categoria"}
                             design="light"
                             change={(value: string) => changeDescriptionNameHandler(value)}
-                            //value={category?.description}
+                            value={category.description}
                         />
                         <ProductDetail update={(data: any) => updateProductDetailsHandler(data)} />
                         <div className="flex justify-end">
