@@ -37,7 +37,9 @@ const CategoriesSlice = createSlice({
     getCategoryById(state, action: PayloadAction<string>) {
 
         const query = fetch(`http://localhost:3005/api/v1/category/${action.payload}`);
-        query.then((res: Response) => res.json()).then((category: Category) => state.category = category);
+        query.then((res: Response) => res.json()).then((category: Category) => {
+          state.category = category
+        });
       
     }
 
