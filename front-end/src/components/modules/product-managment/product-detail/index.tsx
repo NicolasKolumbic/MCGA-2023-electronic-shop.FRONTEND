@@ -12,7 +12,7 @@ interface Row {
     isValid: boolean;
 }
 
-const ProductDetail = ({update}: Props) => {
+const ProductDetail = ({update, features}: Props) => {
 
     const row = {
         name: 'characteristic-name-1',
