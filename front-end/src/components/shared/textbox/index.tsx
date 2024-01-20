@@ -1,5 +1,5 @@
 'use client';
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Props } from "./types";
 
 import styles from "./input.module.css";
@@ -8,9 +8,13 @@ const TextBox = ({ type, value, label, id, design, change }: Props) => {
 
     const [fieldValue, setfieldValue] = useState('');
 
-    if (value) {
-        setfieldValue(value);
-    }
+    useEffect(() => {
+        if (value) {
+            setfieldValue(value);
+        }
+    }, [value])
+
+   
 
     const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setfieldValue(event.target.value);

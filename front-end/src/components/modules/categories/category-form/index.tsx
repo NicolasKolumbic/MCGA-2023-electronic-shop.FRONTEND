@@ -17,10 +17,6 @@ const CategoryForm = ({ id }: Props) => {
     const [createCategory] = useCreateCategoryMutation();
     const storedCategory = useAppSelector(state => state.categories.category);
 
-    if (id) {
-        dispatch(getCategoryById(id))
-    }
-
     const changeDescriptionNameHandler = (value: string) => {
         category!.description = value;
         setCategory(category)
@@ -42,6 +38,36 @@ const CategoryForm = ({ id }: Props) => {
             })
         };
     }
+   
+    if(id) {
+        const {data: editedCategory, isError, error, isLoading}= useGetCategoryByIdQuery(id);
+
+        if(!isLoading) {
+            return <>
+            <div className="flex-1">
+                <form className={styles['categories__form']} onSubmit={submitHandler}>
+                    <fieldset>
+                        <legend>Editar Categoría</legend>
+                        <TextBox
+                            type={"text"}
+                            id={"categoryName"}
+                            label={"Nombre de la Categoria"}
+                            design="light"
+                            change={(value: string) => changeDescriptionNameHandler(value)}
+                            value={editedCategory!.description}
+                        />
+                        <ProductDetail update={(data: any) => updateProductDetailsHandler(data)} />
+                        <div className="flex justify-end">
+                            <Button type={"submit"} label={"Guardar Categoria"} design={"prussian"} />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </>
+        }
+    }
+
+
 
     return <>
             <div className="flex-1">
