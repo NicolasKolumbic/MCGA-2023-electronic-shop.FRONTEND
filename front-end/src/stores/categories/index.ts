@@ -22,14 +22,11 @@ const CategoriesSlice = createSlice({
     setCategories(state, action: PayloadAction<Category[]>) {
       state.categories = action.payload;
     },
-    addCategory(state, action: PayloadAction<Category>) {
-        state.category = action.payload;
-    },
     removeCategory(state, action: PayloadAction<Category>) {
 
     },
     updateCategory(state, action: PayloadAction<Category>) {
-
+      state.category = action.payload;
     },
     editCategory(state, action: PayloadAction<Category>) {
         state.category = action.payload;
@@ -46,6 +43,6 @@ const CategoriesSlice = createSlice({
   }
 });
 
-export const {setCategories, addCategory, removeCategory, updateCategory, editCategory, getCategoryById  } = CategoriesSlice.actions
+export const {setCategories, removeCategory, updateCategory, editCategory, getCategoryById  } = CategoriesSlice.actions
 
 export default CategoriesSlice.reducer;

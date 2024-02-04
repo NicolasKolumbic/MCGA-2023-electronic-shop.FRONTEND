@@ -26,6 +26,15 @@ button.cerulean:hover {
     background-color: var(--light-cerulean);
 }
 
+button.transparent-prussian {
+    background-color: transparent;
+    color: var(--prussian-blue);
+}
+
+button.transparent-prussian:hover {
+    color: var(--light-prussian-blue);
+}
+
 button.fluid {
     width: 100%;
 }
@@ -35,5 +44,17 @@ button.outline-platinum {
     color: var(--platinum);
     font-weight: 600;
     padding: 0.75rem;
+}
+
+button.outline-prussian {
+    border: 1px solid var(--prussian-blue);
+    color: var(--prussian-blue);
+    font-weight: 600;
+    padding: 0.75rem;
+}
+
+button.outline-prussian:hover {
+    color: var(--light-prussian-blue);
+    border-color: var(--light-prussian-blue);
 }
 

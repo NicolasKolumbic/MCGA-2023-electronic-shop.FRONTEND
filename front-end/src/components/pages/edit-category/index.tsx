@@ -8,9 +8,7 @@ const EditCategory = () => {
     const id = params['id'].toString() || ''
     
     return <>
-        <div>
             <CategoryForm id={id} />
-        </div>
     </>
 }
 
