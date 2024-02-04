@@ -1,17 +1,9 @@
-import AddProduct from "@/components/modules/product-managment/add-product";
+import ProductManagment from "@/components/pages/product-managment";
 
 const ProductManagmentPage = () => {
-
-    
-
     return <>
         <div>
-            <form>
-                <fieldset>
-                    <legend>Nuevo Producto</legend>
-                    <AddProduct />
-                </fieldset>
-            </form>
+            <ProductManagment />
         </div>
     </>
 };

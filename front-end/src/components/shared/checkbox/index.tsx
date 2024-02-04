@@ -6,14 +6,15 @@ const Checkbox = ({id, name, checked, text}: Props) => {
 
     return <>
         <label htmlFor={id} className={styles["checkbox"]}>
+            <input type="checkbox" name={name} id={id} className={styles["checkbox__control"]} />
             <span>
-                <MdOutlineCheckBox />
+                <MdOutlineCheckBox size={25} />
             </span>
             <span>
-                <MdOutlineCheckBoxOutlineBlank />
+                <MdOutlineCheckBoxOutlineBlank size={25} />
             </span>
             {text}
-            <input type="checkbox" name={name} id={id} checked={checked} className={styles["checkbox__control"]} />
+            
         </label>
     </>
 }

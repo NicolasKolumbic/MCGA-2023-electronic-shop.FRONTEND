@@ -2,11 +2,15 @@ import { Product } from '@/models/product';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface ProductsState {
-    products: Product[]
+    products: Product[];
+    product?: Product;
 }
 
 const getInitialState = (): ProductsState =>  {
-    return {products: []};
+    return {
+      products: [],
+      product: undefined
+    };
 };
 
 const initialState: ProductsState = getInitialState();
@@ -18,19 +22,19 @@ const ProductsSlice = createSlice({
     setProducts(state, action: PayloadAction<Product[]>) {
       state.products = action.payload;
     },
-    addProduct(state, action: PayloadAction<Product>) {
-        
+    setProduct(state, action: PayloadAction<Product>) {
+        state.product = action.payload;
     },
     removeProduct(state, action: PayloadAction<Product>) {
 
     },
     updateProduct(state, action: PayloadAction<Product>) {
-
+      state.product = action.payload;
     }
    
   }
 });
 
-export const {setProducts, addProduct, removeProduct, updateProduct  } = ProductsSlice.actions
+export const {setProducts, setProduct, removeProduct, updateProduct  } = ProductsSlice.actions
 
 export default ProductsSlice.reducer;

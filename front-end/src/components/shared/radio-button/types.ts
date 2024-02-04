@@ -3,4 +3,5 @@ export interface Props {
     name: string;
     checked?: boolean;
     text: string;
+    change?: (value: string) => void
 }

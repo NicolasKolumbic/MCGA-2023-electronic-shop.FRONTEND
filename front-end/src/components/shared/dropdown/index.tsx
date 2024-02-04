@@ -4,23 +4,22 @@ import styles from "./dropdown.module.css";
 import { FormEvent } from "react";
 
 
-const Dropdown = ({items, value, id, change}: Props) => {
+const Dropdown = ({items, value, id, label, change}: Props) => {
 
     const changeHandler = (event: FormEvent<HTMLSelectElement>) => {
-        const value = event.currentTarget.value;
+        const currentValue = event.currentTarget.value;
         if(change) {
-            change(value);
+            change(currentValue);
         }
     };
 
-
     return <>
-        <div className={styles["dropdown"]}>
-            <label htmlFor={id}></label>
-            <select id={id} className={styles["control"]} onChange={changeHandler}>
+        <div className={styles["droppdown"]}>
+            <label className={styles["label"]} htmlFor={id}>{label}</label>
+            <select id={id} className={styles["control"]} onChange={changeHandler} value={value}>
                 {
                     items.map((item: DropdownItem) => 
-                        <option key={item.key} value={item.value} selected={item.value === value}>
+                        <option key={item.key} value={item.value}>
                             {item.key}
                         </option>
                     )

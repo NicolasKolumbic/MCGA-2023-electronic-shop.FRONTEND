@@ -1,0 +1,7 @@
+.product-feature__titles {
+    text-transform: uppercase;
+    color: var(--english-violet);
+    font-weight: 600;
+    font-size: 0.785rem;
+    margin-top: 1.2rem;
+}

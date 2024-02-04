@@ -1,6 +1,6 @@
-import { Features } from "@/models/features"
+import { Feature } from "@/models/feature"
 
 export interface Props {
     update: (features: any) => void
-    features?: Features
+    features?: Feature[]
 }

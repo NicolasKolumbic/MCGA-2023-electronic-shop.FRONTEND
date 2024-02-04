@@ -33,3 +33,7 @@ legend {
   color: var()var(--prussian-blue);
   font-weight: 700;
 }
+
+figure {
+  margin:0;
+}

@@ -1,0 +1,7 @@
+.textbox-container {
+    max-width: 600px;
+}
+
+.product-details-title {
+    color: var(--light-prussian-blue);
+}

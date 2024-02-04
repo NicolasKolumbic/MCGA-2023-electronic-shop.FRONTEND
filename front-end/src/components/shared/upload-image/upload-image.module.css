@@ -1,0 +1,23 @@
+.upload-file__dragndrop,
+.upload-file__uploading,
+.upload-file__success,
+.upload-file__error,
+.upload-file__control {
+  display: none;
+}
+
+.upload-file {
+    background-color: var(--non-photo-blue);
+    outline: 2px dashed var(--prussian-blue);
+    outline-offset: -10px;
+    height: 150px
+  }
+
+  .upload-file__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+

@@ -1,28 +1,30 @@
-.checkbox {
+.radio-button {
     position: relative;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.checkbox__control {
+.radio-button__control {
     position: absolute;
     left: -9999px;
     
 }
 
-.checkbox__control:checked + span {
+.radio-button__control:checked + span {
    display: inline-block;
+   color: var(--light-prussian-blue)
 }
 
-.checkbox__control:checked + span + span {
+.radio-button__control:checked + span + span {
     display: none;
  }
 
- .checkbox__control + span + span {
+ .radio-button__control + span + span {
     display: inline-block;
+    
  }
 
- .checkbox__control + span {
+ .radio-button__control + span {
     display: none;
  }
