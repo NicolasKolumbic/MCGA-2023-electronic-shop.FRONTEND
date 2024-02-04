@@ -11,7 +11,7 @@ interface Props {
 export default function Providers({children}: Props) {
 
   useEffect(() => {
-    console.log("Inicial")
+
   }, [])
   
 
