@@ -16,7 +16,8 @@ const Dropdown = ({items, value, id, label, change}: Props) => {
     return <>
         <div className={styles["droppdown"]}>
             <label className={styles["label"]} htmlFor={id}>{label}</label>
-            <select id={id} className={styles["control"]} onChange={changeHandler} value={value}>
+            <select id={id} className={styles["control"]} onChange={changeHandler} defaultValue={'DEFAULT'} value={value}>
+                <option value="DEFAULT" disabled>Seleccione una categoría...</option>
                 {
                     items.map((item: DropdownItem) => 
                         <option key={item.key} value={item.value}>

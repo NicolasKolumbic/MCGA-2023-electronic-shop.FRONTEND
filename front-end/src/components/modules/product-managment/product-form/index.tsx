@@ -116,7 +116,7 @@ const ProductForm = ({id}: Props) => {
             dispatch(setProduct(new Product()))
         }
 
-        if(categories && !storedCategories) {
+        if(categories && storedCategories.length === 0) {
             dispatch(setCategories(categories))
         }
     }, [categories, product, editedProduct])
