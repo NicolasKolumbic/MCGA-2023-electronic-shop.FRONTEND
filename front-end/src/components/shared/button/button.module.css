@@ -1,5 +1,6 @@
 .btn {
     background: transparent;
+    display: inline-block;
     border: none;
     border-radius: 0.5rem;
     padding: 0.75rem 1rem;
@@ -8,52 +9,60 @@
     margin: 1rem 0;
 }
 
-button.prussian {
+button.prussian, a.prussian {
     background-color: var(--prussian-blue); 
     color: white;
 }
 
-button.prussian:hover {
+button.prussian:hover,
+a.prussian:hover {
     background-color: var(--light-prussian-blue);
 }
 
-button.cerulean {
+button.cerulean,
+a.cerulean {
     background-color: var(--cerulean); 
     color: white;
 }
 
-button.cerulean:hover {
+button.cerulean:hover,
+a.cerulean:hover {
     background-color: var(--light-cerulean);
 }
 
-button.transparent-prussian {
+button.transparent-prussian,
+a.transparent-prussian {
     background-color: transparent;
     color: var(--prussian-blue);
 }
 
-button.transparent-prussian:hover {
+button.transparent-prussian:hover,
+a.transparent-prussian:hover {
     color: var(--light-prussian-blue);
 }
 
-button.fluid {
+button.fluid, a.fluid {
     width: 100%;
 }
 
-button.outline-platinum {
+button.outline-platinum,
+a.outline-platinum {
     border: 1px solid var(--platinum);
     color: var(--platinum);
     font-weight: 600;
     padding: 0.75rem;
 }
 
-button.outline-prussian {
+button.outline-prussian,
+a.outline-prussian  {
     border: 1px solid var(--prussian-blue);
     color: var(--prussian-blue);
     font-weight: 600;
     padding: 0.75rem;
 }
 
-button.outline-prussian:hover {
+button.outline-prussian:hover,
+a.outline-prussian:hover  {
     color: var(--light-prussian-blue);
     border-color: var(--light-prussian-blue);
 }

@@ -27,7 +27,7 @@ const ProductManagment = () =>  {
         <hr/>
         <div>
             <div>
-                <Button type={"button"} label={"Nuevo Producto"} design={"prussian"} click={addProduct} />
+                <Button  label={"Nuevo Producto"} design={"prussian"} link="/add-product" />
             </div>
             {
                 products.map((product: Product) => (
