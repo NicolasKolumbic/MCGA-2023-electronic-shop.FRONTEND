@@ -2,32 +2,29 @@
 import Brand from "../../shared/brand";
 import Button from "../../shared/button";
 import TextBox from "../../shared/textbox";
-import styles from "./login.module.css";
-import Link from "next/link";
-import React, { ChangeEvent, useState, FormEvent } from "react";
+import styles from "./signUp.module.css";
+import Link from "next/dist/client/link";
+import React, { useState, FormEvent } from "react";
 import { auth } from "../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword , onAuthStateChanged } from "firebase/auth";
+import { redirect } from 'next/navigation';
 
-const Login = () => {
+const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const singIn = async () =>{
+    const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             console.log(userCredential);
             const user:{accessToken:string} = userCredential.user as unknown as {accessToken:string};
             localStorage.setItem('token', user.accessToken);
             localStorage.setItem('user', JSON.stringify(user));
-            location.href = '/category-managment';
+            redirect('/category-managment');
         } catch (error) {
             console.log(error);
         }
-    }
-
-    const handleSubmit =  (e:FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        singIn();
     }
 
     return <>
@@ -42,9 +39,9 @@ const Login = () => {
                 </div>
                 <Button type={"submit"} label={"Iniciar Sesión"} design="cerulean fluid" />
             </fieldset>
-        <Link href={"/signUp"}>Sign Up</Link>
+        <Link href={"/login"}>Login</Link>
         </form>
     </>
 };
 
-export default Login;
+export default SignUp;
