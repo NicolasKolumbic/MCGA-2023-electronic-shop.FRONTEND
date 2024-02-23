@@ -35,13 +35,25 @@ export const categoryApi = createApi({
         query: (category) => ({
           url: `/category/${category.id}`,
           method: 'PATCH',
+          transformResponse: (categoryDto: CategoryDto) => {
+            return new Category(categoryDto)
+          },
           body: {
             description: category.description,
             characteristics: category.characteristics
           }
         })
-      })
+      }),
+      removeCategory: builder.mutation<Category[], string>({
+        query: (categoryId) => ({
+          url: `/category/${categoryId}`,
+          method: 'DELETE'
+        }),
+        transformResponse: (categories: CategoryDto[]) => {
+          return categories.map((categoryDto:CategoryDto) => new Category(categoryDto) )
+        }
+      }),
     })
 });
 
-export const { useGetCategoriesQuery, useCreateCategoryMutation, useGetCategoryByIdQuery, useUpdateCategoryMutation } = categoryApi;
+export const { useGetCategoriesQuery, useCreateCategoryMutation, useGetCategoryByIdQuery, useUpdateCategoryMutation, useRemoveCategoryMutation } = categoryApi;

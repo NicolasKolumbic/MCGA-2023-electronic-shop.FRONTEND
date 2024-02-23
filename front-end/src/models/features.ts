@@ -1,3 +1,3 @@
 export class Features {
-    [key: string]: string;
+    [key: string]: string | number;
 }
