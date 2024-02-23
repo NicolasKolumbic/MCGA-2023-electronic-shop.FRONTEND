@@ -1,12 +1,14 @@
 'use client'
 import { useAppDispatch, useAppSelector } from "@/stores";
+import { useRouter } from 'next/navigation'
 import {setProduct, updateProduct } from "@/stores/products";
 import { useCreateProductMutation,useGetProductByIdQuery, useUpdateProductMutation } from "../product-api";
 import { useGetCategoriesQuery } from "../../categories/category-api";
 import TextBox from "@/components/shared/textbox";
 import Dropdown from "@/components/shared/dropdown";
 import { Props } from "./types";
-import { FormEvent, useEffect } from "react";
+import { FormEvent, useEffect, useState } from "react";
+
 
 import styles from "./product-form.module.css";
 import Button from "@/components/shared/button";
@@ -16,21 +18,53 @@ import { Product } from "@/models/product";
 import ProductFeature from "../product-features";
 import {setCategories } from "@/stores/categories";
 import UploadImage from "@/components/shared/upload-image";
+import { useForm } from "@/hooks/form";
+import { required } from "@/hooks/validators/required";
+import { minLength } from "@/hooks/validators/minLength";
+import { Form } from "@/hooks/form.interface";
+import { InputNumber } from "@/components/shared/input-number";
 
 const ProductForm = ({id}: Props) => {
 
     const dispatch = useAppDispatch();
     const [createProductApi] = useCreateProductMutation();
     const [updateProductApi] = useUpdateProductMutation();
+    const editedProduct = id !== undefined ? useGetProductByIdQuery(id) : undefined;
     
     const product = useAppSelector(state => state.products.product);
     const storedCategories = useAppSelector(state => state.categories.categories);
+    const router = useRouter();
 
     const {data: categories, isError, error, isLoading} = useGetCategoriesQuery({});
-    const editedProduct = id ? useGetProductByIdQuery(id) : undefined;
+
+
+    const [form, setForm] = useState<Form>(useForm({
+        name: 'product-form',
+        controls: [
+            {
+                name: 'description',
+                validations: [
+                    required(),
+                    minLength(5)
+                ]
+            },
+            {
+                name: 'price',
+                validations: [
+                    required()
+                ]
+            },
+            {
+                name: 'stock',
+                validations: [
+                    required()
+                ]
+            },]}));
 
     const submitHandler = (event: FormEvent) => {
         event.preventDefault();
+        const updatedForm = form.validateAll();
+        setForm(updatedForm);
         if (product?.description && product.features) {
             if(product.id) {
                 updateProductApi({
@@ -42,7 +76,7 @@ const ProductForm = ({id}: Props) => {
                     features: JSON.stringify(product.features),
                     categoryId: product.category.id!
                 }).then((res: any) => {
-                    console.log(res);
+                    router.push("/product-managment")
                 });
             } else {
                 createProductApi({
@@ -54,7 +88,7 @@ const ProductForm = ({id}: Props) => {
                     categoryId: product.category.id!
 
                 }).then((res: any) => {
-                    console.log(res);
+                    router.push("/product-managment")
                 });
             } 
         };
@@ -103,11 +137,12 @@ const ProductForm = ({id}: Props) => {
 
     const loadEditProduct = (result: any) => {
         if(result.data) {
+            form.patchValue(result.data);
             dispatch(setProduct(result.data))
         }
         
     }
-   
+
     useEffect(() => {
 
         if(id && editedProduct && !product) {
@@ -119,7 +154,8 @@ const ProductForm = ({id}: Props) => {
         if(categories && storedCategories.length === 0) {
             dispatch(setCategories(categories))
         }
-    }, [categories, product, editedProduct])
+
+    }, [categories, product, editedProduct, form])
 
 
     const template = (title: string, label: string, categories: DropdownItem[]) => {
@@ -136,15 +172,17 @@ const ProductForm = ({id}: Props) => {
                                     label={"Nombre de producto"}
                                     design="light"
                                     value={product?.description}
+                                    control={form.control("description")}
                                     change={(value: string) => updateProductChangeHandler({description: value})} />
+                                
                             </div>
                             <div>
-                                <TextBox 
-                                    type={"text"}
+                                <InputNumber 
                                     id={"price"}
                                     label={"Precio"}
                                     design="light"
                                     value={product?.price}
+                                    control={form.control("price")}
                                     change={(value: string) => updateProductChangeHandler({price: parseFloat(value)})} />
                             </div>
                             <div>
@@ -156,13 +194,14 @@ const ProductForm = ({id}: Props) => {
                                     value={product?.category.description}  />
                             </div>
                             <div>
-                                <TextBox 
-                                    type={"text"}
+                                <InputNumber 
                                     id={"stock"}
                                     label={"Stock"}
                                     design="light"
                                     value={product?.stock}
-                                    change={(value: string) => updateProductChangeHandler({stock: parseFloat(value)})} />
+                                    onlyIntegers={true}
+                                    control={form.control("stock")}
+                                    change={(value: string) => updateProductChangeHandler({stock: parseInt(value, 10)})} />
                             </div>
                             <div>
                                 <ProductFeature
@@ -192,9 +231,10 @@ const ProductForm = ({id}: Props) => {
                             </div>
                         </div>
                         <div className="flex justify-end gap-2">
-                            <Button type={"button"} label={"Cancelar"} design={"outline-prussian"} click={() => window.location.href= 'http://localhost:3000/product-managment' } />
+                            <Button label={"Cancelar"} design={"outline-prussian"} link="/product-managment" />
                             <Button type={"submit"} label={label} design={"prussian"} />
                         </div>
+ 
                     </fieldset>
                 </form>
             </div>
@@ -206,7 +246,6 @@ const ProductForm = ({id}: Props) => {
 if(categories && categories.length > 0) {
     const items: DropdownItem[] = categories.map((category: Category) => {return {key: category.description, value: category.id}}) as DropdownItem[];
     if(id) {
-           // 
             return template("Editar Producto", "Actualizar Producto",items)
     } else {
         return template("Nueva Producto", "Guardar Producto", items);

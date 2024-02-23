@@ -72,17 +72,7 @@ const ProductDetail = ({ update, features }: Props) => {
             categoryFeature.values.push(new CategoryFeatureDetail({key:'feature-value-detail-'+ newIndex, value:''}))
         }
 
-       validate(rows);
-    }
-
-    const clickLessValueHandler = (featureName: string) => {
-        const rows = items;
-        const categoryFeature = rows.find((categoryFeature: CategoryFeature) => categoryFeature.id === featureName)!;
-        if(categoryFeature && categoryFeature.values.length > 1) {
-            categoryFeature.values.pop();
-        }
-
-        validate(rows);
+    validate(rows);
     }
 
     const valueChangeHandler = (featureName: string, optionName: string, value: string) => {
@@ -142,8 +132,8 @@ const ProductDetail = ({ update, features }: Props) => {
         <div className="mt-4">
             {
                 items.map((feature: CategoryFeature, index: number) => (
-                    <div className="p-3 border-t-slate-500 border-t border-t-solid">
-                        <table key={feature.id}>
+                    <div className="p-3 border-t-slate-500 border-t border-t-solid" key={index}>
+                        <table>
                             <thead>
                                 <tr>
                                     <th>
@@ -165,30 +155,29 @@ const ProductDetail = ({ update, features }: Props) => {
                                         <div className="inline-flex items-center flex-wrap mt-3">
                                             {
                                                 feature.values.map((featureDetail: CategoryFeatureDetail, subIndex: number) => (
-                                                    <>
-                                                        <div key={featureDetail.key} className="flex items-center">
-                                                            <TextBox type={"text"}
-                                                                id={featureDetail.key}
-                                                                design="light"
-                                                                change={(value: string) => valueChangeHandler(
-                                                                    feature.id,
-                                                                    featureDetail.key,
-                                                                    value
-                                                                )}
-                                                                value={featureDetail.value} />
-                                                                <Button type={"button"} label={<IoClose />} design={"transparent-prussian"} click={(event: React.MouseEvent) => removeCategoryFeatureDetail(feature.id, featureDetail.key)} />
+
+                                                    <div key={featureDetail.key}  className="flex items-center">
+                                                        <TextBox type={"text"}
+                                                            id={featureDetail.key}
+                                                            design="light"
+                                                            change={(value: string) => valueChangeHandler(
+                                                                feature.id,
+                                                                featureDetail.key,
+                                                                value
+                                                            )}
+                                                            value={featureDetail.value} />
+                                                            <Button type={"button"} label={<IoClose />} design={"transparent-prussian"} click={(event: React.MouseEvent) => removeCategoryFeatureDetail(feature.id, featureDetail.key)} />
+                                                            {
+                                                        (feature.values.length === subIndex + 1)
+                                                        ?
+                                                        <div>
+                                                            <Button type={"button"} label={<FaPlus />} design={"transparent-prussian"} click={(event: React.MouseEvent) => clickAddValueHandler(feature.id, subIndex)} />
+                                                            <Button type={"button"} label={<FaMinus />} design={"transparent-prussian"} click={(event: React.MouseEvent) => removeCategoryFeatureDetail(feature.id, featureDetail.key)} />
                                                         </div>
-                                                        {
-                                                            (feature.values.length === subIndex + 1)
-                                                            ?
-                                                            <div>
-                                                                <Button type={"button"} label={<FaPlus />} design={"transparent-prussian"} click={(event: React.MouseEvent) => clickAddValueHandler(feature.id, subIndex)} />
-                                                                <Button type={"button"} label={<FaMinus />} design={"transparent-prussian"} click={(event: React.MouseEvent) => clickLessValueHandler(feature.id)} />
-                                                            </div>
-                                                            :
-                                                            null
-                                                        }
-                                                    </>
+                                                        :
+                                                        null
+                                                    }
+                                                    </div>                                   
                                                 ))
                                             }
                                         </div>
@@ -213,7 +202,6 @@ const ProductDetail = ({ update, features }: Props) => {
                             </tbody>
                         </table>
                     </div>
-
                 ))
             }
 

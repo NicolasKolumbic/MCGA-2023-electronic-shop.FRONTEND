@@ -1,12 +1,13 @@
 import { ProductDto } from "@/dtos/product-dto";
 import { Category } from "./category";
+import { Features } from "./features";
 export class Product {
     id: string;
     description: string;
     price: number;
     stock: number;
     category: Category;
-    features: {[key: string]: string | number};
+    features: Features;
     image: string;
 
     constructor(productDto?: ProductDto) {
@@ -22,7 +23,7 @@ export class Product {
         
         for (const key in items) {
             if (Object.prototype.hasOwnProperty.call(items, key)) {
-                this.features[key] = items[key];  
+                this.features[key as keyof Features] = items[key];  
             }
         }
     }

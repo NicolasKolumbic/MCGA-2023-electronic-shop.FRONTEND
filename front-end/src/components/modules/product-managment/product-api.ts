@@ -43,8 +43,17 @@ export const productApi = createApi({
             categoryId: product.categoryId!
           }
         })
+      }),
+      removeProduct: builder.mutation<Product[], Partial<AddProductDto>>({
+        query: (product) => ({
+          url: `/product/${product.id}`,
+          method: 'DELETE'
+        }),
+        transformResponse: (products: ProductDto[]) => {
+          return products.map((productDto:ProductDto) => new Product(productDto) )
+        }
       })
     })
 });
 
-export const { useCreateProductMutation, useGetProductByIdQuery, useGetProductsQuery, useUpdateProductMutation } = productApi;
+export const { useCreateProductMutation, useGetProductByIdQuery, useGetProductsQuery, useUpdateProductMutation, useRemoveProductMutation } = productApi;

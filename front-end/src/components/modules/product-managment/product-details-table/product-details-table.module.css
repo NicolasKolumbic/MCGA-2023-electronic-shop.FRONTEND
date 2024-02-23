@@ -1,0 +1,27 @@
+.product-details-table {
+    border: 1px solid grey;
+    margin-top: 1rem;
+}
+
+.product-details-table caption {
+    font-weight: 600;
+}
+
+.product-details-table tr td {
+    padding: 0.25rem 0.5rem;
+}
+
+
+.product-details-table tr:nth-child(even) {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.product-details-table tr td:first-child {
+    text-transform: uppercase;
+    font-size: 0.785rem;
+}
+
+.product-details-table tr td + td {
+    font-weight: 600;
+    text-align: center;
+}
