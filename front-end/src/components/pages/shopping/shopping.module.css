@@ -1,5 +1,38 @@
-.shopping-page {
-    height: 100%;
-    display: flex;
+.product-image {
+    width: 250px;
+    display: inline-flex;
+    align-items: center;
 }
 
+.product-item {
+    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.3);
+    width: 30%;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.product-pill{
+    padding: 0.25rem 0.75rem;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 0.7rem;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+.product-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--english-violet);
+}
+
+.scroll-bar {
+    overflow-y: auto;
+    height: 75vh;
+}
+
+.main-div {
+    max-width: 100%;
+}
