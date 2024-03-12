@@ -5,7 +5,7 @@ const CartDetail = (product: ShoppingCart) => {
     return (
         <div>
                 <li key={product.id}>
-                    {product.description} - Quantity: 1
+                    {product.description} cantidad: {product.quantity} ${product.price}
                 </li>
         </div>
     )

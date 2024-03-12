@@ -1,30 +1,28 @@
 import { ShoppingCart } from "@/models/shopping-cart";
 
 export class ShoppingCartForSale {
-    products: Map<ShoppingCart, Number> = new Map();
+    products:ShoppingCart[] = [];
 
     add(productCart: ShoppingCart) {
-         if (this.products.has(productCart)) {
-            const productCount = this.products.get(productCart);
-            const updatedCount = (Number(productCount) ?? 0) + 1;
-            this.products.set(productCart, updatedCount);
+        const index = this.products.findIndex((prod) => prod.id === productCart.id);
+         if (index !== -1) {
+            this.products[index].quantity += 1;
         } else {
-            this.products.set(productCart, 1);
+            this.products.push(productCart);
         }
     }
 
     getCart() {
-        return Array.from(this.products);
+        return this.products;
     }
 
     remove(productCart: ShoppingCart) {
-        if (this.products.has(productCart)) {
-            const productCount = this.products.get(productCart);
-            if (productCount === 1) {
-                this.products.delete(productCart);
+        const index = this.products.findIndex((prod) => prod.id === productCart.id);
+        if (index !== -1) {
+            if (this.products[index].quantity === 1) {
+                this.products.splice(index, 1);
             } else {
-                const updatedCount = (productCount as number) - 1;
-                this.products.set(productCart, updatedCount);
+                this.products[index].quantity -= 1;
             }
         }
     }
