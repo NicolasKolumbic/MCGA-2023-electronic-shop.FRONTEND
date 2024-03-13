@@ -16,7 +16,7 @@ const LoginPage = () => {
                             Modelos Computacionales de Gestión Administrativa <strong>2023</strong>
                         </h4>
                     </div>
-                    <Image src={'uai.svg'} alt={"Logo Universidad Abierta Interamericana"} width={298} height={40} />
+                    <Image src={'image/uai.svg'} alt={"Logo Universidad Abierta Interamericana"} width={298} height={40} />
                 </div>
             </footer>
         </div>

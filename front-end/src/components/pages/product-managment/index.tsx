@@ -55,8 +55,8 @@ const ProductManagment = () =>  {
             <div className={styles["scroll-bar"]}>
                 <div className="flex flex-wrap gap-6 mt-4 p-3">
                 {
-                    products.map((product: Product) => (
-                        <div key={product.description} className={styles["product-item"] + " flex gap-3 p-4"}>
+                    products.map((product: Product, index: number) => (
+                        <div key={product.description+"-"+index} className={styles["product-item"] + " flex justify-between gap-3 p-4"}>
                             <div className="flex flex-col justify-between">
                                 <div>
                                     <h3 className={styles["product-title"]}>{product.description}</h3>

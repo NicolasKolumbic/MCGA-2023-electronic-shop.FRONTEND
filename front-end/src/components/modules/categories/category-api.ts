@@ -1,4 +1,5 @@
 'use client';
+import { baseQueryCallback } from '@/core/base-query';
 import { CategoryDto } from '@/dtos/category-dto';
 import { CategoryRequestDto } from '@/dtos/category-request-dto';
 import { CategoryUpdateRequestDto } from '@/dtos/category-update-request-dto';
@@ -7,7 +8,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const categoryApi = createApi({
     reducerPath: 'categoryApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3005/api/v1' }),
+    baseQuery: baseQueryCallback,
     tagTypes: ['Categories'],
     endpoints: (builder) => ({
       getCategories: builder.query({

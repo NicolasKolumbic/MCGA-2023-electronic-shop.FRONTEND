@@ -1,9 +1,13 @@
-import { redirect } from 'next/navigation'
+import React from 'react';
+import HomePage from '@/components/pages/home';
 
-const HomePage = () => {
+const IndexPage = () => {
 
-  redirect('/login');
-
+  return <>     
+          <div>
+            <HomePage />
+          </div>
+  </>
 }
 
-export default HomePage;
+export default IndexPage;

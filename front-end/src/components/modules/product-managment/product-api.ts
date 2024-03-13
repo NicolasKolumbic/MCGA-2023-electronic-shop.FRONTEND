@@ -1,12 +1,13 @@
 'use client';
+import { baseQueryCallback } from '@/core/base-query';
 import { AddProductDto } from '@/dtos/add-product-dto';
 import { ProductDto } from '@/dtos/product-dto';
 import { Product } from '@/models/product';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
 
 export const productApi = createApi({
     reducerPath: 'productApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3005/api/v1' }),
+    baseQuery: baseQueryCallback,
     tagTypes: ['Products'],
     endpoints: (builder) => ({
       getProducts: builder.query({

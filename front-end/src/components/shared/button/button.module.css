@@ -7,6 +7,7 @@
     transition: background-color 0.3s;
     font-weight: 400;
     margin: 1rem 0;
+    justify-content: center;
 }
 
 button.prussian, a.prussian {
@@ -67,5 +68,15 @@ button.outline-prussian:hover,
 a.outline-prussian:hover  {
     color: var(--light-prussian-blue);
     border-color: var(--light-prussian-blue);
+}
+
+a.outline-white {
+    color: white;
+    border: 1px solid white;
+}
+
+a.outline-white:hover {
+    color: var(--light-cerulean);
+    border-color: var(--light-cerulean);
 }
 
