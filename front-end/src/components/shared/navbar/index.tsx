@@ -4,7 +4,6 @@ import Brand from "../brand";
 import Button from "../button";
 import styles from "./navbar.module.css";
 import { useRouter } from 'next/navigation';
-import { useEffect } from "react";
 import { useLogoutMutation } from "@/core/auth-api";
 
 const Navbar = () => {
@@ -12,9 +11,6 @@ const Navbar = () => {
     const router = useRouter();
     const userEmail = useAppSelector((state) => state.user.email);
     const [logout] = useLogoutMutation();
-
-    useEffect(() => {
-    })
 
     const handleLogout = async () => {
         logout({}).then(() => {

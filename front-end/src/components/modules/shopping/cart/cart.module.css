@@ -1,0 +1,5 @@
+.cart {
+    border-bottom: 1px solid var(--platinum);
+    margin-bottom: 0.25rem;
+    display: block;
+}

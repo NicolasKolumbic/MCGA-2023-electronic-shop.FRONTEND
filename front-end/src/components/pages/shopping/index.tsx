@@ -18,7 +18,6 @@ import { ShoppingCartForSale } from "@/models/shopping-cart-detail";
 import { setSales } from "@/stores/sales";
 import { Sale } from "@/models/sale";
 
-
 const Shopping = () => {
 
     const dispatch = useAppDispatch();
@@ -80,8 +79,6 @@ const Shopping = () => {
         }
         dispatch(setSales(sale));
     };
-
-
 
     const template = (categories: DropdownItem[]) => {
         return <>
@@ -150,8 +147,6 @@ const Shopping = () => {
             </div>
         </>
     }
-
-
 
     if (categories && categories.length > 0) {
         const items: DropdownItem[] = categories.map((category: Category) => { return { key: category.description, value: category.id } }) as DropdownItem[];
