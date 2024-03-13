@@ -1,0 +1,9 @@
+.categories__list {
+    width: 100%;
+}
+
+.categories__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--english-violet);
+}
